@@ -1,0 +1,28 @@
+.login {
+  width: 90%;
+  max-width: 40rem;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.actions {
+  text-align: center;
+}
+
+.button {
+  font: inherit;
+  border-radius: 8px;
+  border: 1px solid #c6b9c9;
+  background: #c6b9c9;
+  color: white;
+  cursor: pointer;
+}
+.gooBtn {
+  width:200px;
+  height: auto;
+}
+.button:hover,
+.button:active {
+  background: #741188;
+  border-color: #741188;
+}

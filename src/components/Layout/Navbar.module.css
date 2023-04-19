@@ -1,0 +1,10 @@
+.link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap : 20px;
+}
+.link a {
+    text-align: center;
+    text-decoration: none;
+}

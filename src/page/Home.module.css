@@ -1,0 +1,13 @@
+.wrapper {
+  margin-top: 80px;
+  border: 2px solid lightgray;
+  border-radius: 8px;
+}
+.wrapper h2 {
+  font-style: italic;
+  color: rgb(184, 162, 132);
+}
+
+.title {
+  font-size: large;
+}

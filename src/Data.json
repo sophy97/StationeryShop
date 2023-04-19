@@ -1,0 +1,76 @@
+{
+  "DUMMY_PRODUCTS": [
+    {
+      "id": 1,
+      "name": "젤리펜",
+      "description": "칼라풀한 색감이 매력적인 젤리펜입니다.",
+      "price": 1500,
+      "purchase": 100,
+      "img": "goods_1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "스마트폰 케이스",
+      "description": "다양한 색상과 디자인으로 구성된 스마트폰 케이스입니다.",
+      "price": 10000,
+      "purchase": 25,
+      "img": "goods_2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "떡메모지",
+      "description": "다양한 사이즈와 디자인으로 구성된 메모지입니다.",
+      "price": 3000,
+      "purchase": 40,
+      "img": "goods_3.jpg"
+    },
+    {
+      "id": 4,
+      "name": "연필세트",
+      "description": "유색, 검정색 연필이 함께 들어있는 세트입니다.",
+      "price": 5000,
+      "purchase": 35,
+      "img": "goods_4.jpg"
+    },
+    {
+      "id": 5,
+      "name": "스텐실",
+      "description": "다양한 모양과 패턴의 스텐실로 구성된 세트입니다.",
+      "price": 7000,
+      "purchase": 20,
+      "img": "goods_5.jpg"
+    },
+    {
+      "id": 6,
+      "name": "데스크 패드",
+      "description": "좋은 집중력과 작업 환경을 위한 데스크 패드입니다.",
+      "price": 15000,
+      "purchase": 15,
+      "img": "goods_6.jpg"
+    },
+    {
+      "id": 7,
+      "name": "카드 홀더",
+      "description": "카드와 명함을 보관할 수 있는 카드 홀더입니다.",
+      "price": 6000,
+      "purchase": 30,
+      "img": "goods_7.jpg"
+    },
+    {
+      "id": 8,
+      "name": "다이어리",
+      "description": "스테디 셀러, 인기 형식의 무지 다이어리입니다.",
+      "price": 14500,
+      "purchase": 500,
+      "img": "goods_6.jpg"
+    },
+    {
+      "id": 9,
+      "name": "만년필",
+      "description": "실제 만년필과 유사한 내구성, 경제적인 제품입니다.",
+      "price": 12000,
+      "purchase": 220,
+      "img": "goods_5.jpg"
+    }
+  ]
+}
