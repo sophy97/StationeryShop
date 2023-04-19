@@ -1,10 +1,22 @@
 .link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap : 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 .link a {
-    text-align: center;
-    text-decoration: none;
+  text-align: center;
+  text-decoration: none;
+}
+.logout span {
+    font-size: larger;
+}
+
+.logout button {
+  padding: 3px 5px;
+  margin-left: 10px;
+}
+
+.logout button:hover {
+  cursor: pointer;
 }

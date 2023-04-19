@@ -1,12 +1,13 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Layout/Header";
-import Home from './page/Home';
-import Shop from './page/Shop';
-import ShopDetail from './page/ShopDetail';
+import Home from "./page/Home";
+import Shop from "./page/Shop";
+import ShopDetail from "./page/ShopDetail";
 import LoginForm from "./components/Login/LoginForm";
-import Error from './page/Error';
+import Error from "./page/Error";
 import Container from "./components/UI/Container";
+import Footer from "./components/Layout/Footer";
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
           <Route path="*" element={<Error />}></Route>
         </Routes>
       </Container>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

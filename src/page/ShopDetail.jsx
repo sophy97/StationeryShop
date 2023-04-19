@@ -2,25 +2,26 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import data from "../Data.json";
+import classes from "./ShopDetail.module.css";
 
 const ShopDetail = () => {
   const { id } = useParams();
-  const selectedGoods = data.DUMMY_PRODUCTS.find((goods) => goods.id === id) || null;
+  const selectedProduct =
+    data.DUMMY_PRODUCTS.find((product) => product.id === parseInt(id)) || null;
 
-  // 위 find메서드는 아래 for문과 동일
-  /*
-  let target;
-  for (let i = 0; i < data.DUMMY_GOODS.length; i++) {
-    if (data.DUMMY_GOODS[i].id === id) {
-      target = data.DUMMY_GOODS[i];
-    }
-  } */
-
+  console.log(selectedProduct);
   return (
-    <div>
-      {selectedGoods && selectedGoods.name}
+    <div className={classes.wrapper}>
       test: {id}
-      
+      <div className={classes.img_wrap}>
+        <img src={selectedProduct.img}></img>
+      </div>
+      <h3>{selectedProduct.name}</h3>
+      <span>{selectedProduct.description}</span>
+      <span>
+        <p>가격: {selectedProduct.price}</p>
+        <p>판매량: {selectedProduct.purchase}</p>
+      </span>
     </div>
   );
 };

@@ -10,17 +10,19 @@ const Home = () => {
 
   const bestList = best_5.map((best) => (
     <div key={best.id} className={classes.list_box}>
-      <span className={classes.title}><p>{best.name}</p></span>
-      <span><p>{best.price}</p></span>
-      판매량: <span style={{ color: "brown" }}>{best.purchase}</span>
+      <span>
+        <h3>{best.name} | {best.price}원</h3>
+      </span>
+      판매량:<span style={{ color: "brown" }}>{best.purchase}</span>
+      <hr />
     </div>
   ));
 
   return (
-    <section className={classes.wrapper}>
-      <h2>BEST LIST</h2>
-      {bestList}
-    </section>
+    <>
+      <h2 className={classes.title}>BEST LIST</h2>
+      <section className={classes.wrapper}>{bestList}</section>
+    </>
   );
 };
 
