@@ -8,13 +8,18 @@
   text-align: center;
   text-decoration: none;
 }
-.logout span {
-    font-size: larger;
+.logout span b {
+    font-size:30px;
+    background-color: whitesmoke;
+    padding: 3px 3px;
+    border-radius: 15px;
+    cursor: pointer;
 }
 
 .logout button {
   padding: 3px 5px;
   margin-left: 10px;
+  margin-top: 10px;
 }
 
 .logout button:hover {

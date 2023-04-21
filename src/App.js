@@ -8,21 +8,24 @@ import LoginForm from "./components/Login/LoginForm";
 import Error from "./page/Error";
 import Container from "./components/UI/Container";
 import Footer from "./components/Layout/Footer";
+import { CartProvider } from "./components/Cart/CartContext";
 
 function App() {
   return (
     <div>
-      <Header />
-      <Container>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/shop" element={<Shop />}></Route>
-          <Route path="/shop/:id" element={<ShopDetail />} />
-          <Route path="/login" element={<LoginForm />}></Route>
-          <Route path="*" element={<Error />}></Route>
-        </Routes>
-      </Container>
-      <Footer />
+      <CartProvider>
+        <Header />
+        <Container>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/shop" element={<Shop />}></Route>
+            <Route path="/shop/:id" element={<ShopDetail />} />
+            <Route path="/login" element={<LoginForm />}></Route>
+            <Route path="*" element={<Error />}></Route>
+          </Routes>
+        </Container>
+        <Footer />
+      </CartProvider>
     </div>
   );
 }

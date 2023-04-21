@@ -1,0 +1,15 @@
+.cart {
+  text-align: center;
+}
+.cart h1 {
+  background-color: wheat;
+  border-radius: 8px;
+  color:black;
+}
+.amount {
+  font-size: 20px;
+  color: brown;
+}
+.totalAmount {
+  font-size: large;
+}
