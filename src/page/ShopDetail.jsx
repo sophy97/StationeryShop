@@ -12,7 +12,8 @@ const ShopDetail = () => {
   const { id } = useParams();
   const selectedProduct =
     data.DUMMY_PRODUCTS.find((product) => product.id === parseInt(id)) || null;
-
+  // localStorage에 저장된 user 있다면 이름 불러오기
+  const userName = localStorage.getItem("user_name");
   const [cartInputOpen, setCartInputOpen] = useState(false);
   return (
     <div className={classes.wrapper}>
@@ -36,7 +37,9 @@ const ShopDetail = () => {
         >
           + 🛒
         </button>
-        {cartInputOpen && <CartInput selectedProduct={selectedProduct} />}
+        {cartInputOpen && userName && (
+          <CartInput selectedProduct={selectedProduct} />
+        )}
       </span>
     </div>
   );
@@ -53,12 +56,13 @@ const CartInput = (props) => {
     // amount를 number로 변환 (cart컴포넌트에서 누적하기위해)
     cartCtx.addItem({ ...props.selectedProduct, amount: +amount });
     e.preventDefault();
+    alert("장바구니에 상품이 추가되었습니다");
   };
-  // console.log({ ...props.selectedProduct, amount });
 
   return (
     <form onSubmit={CartHandler}>
-      <input className={classes.inputBox}
+      <input
+        className={classes.inputBox}
         type="number"
         min="1"
         step="1"

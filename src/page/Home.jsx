@@ -4,6 +4,7 @@ import classes from "./Home.module.css";
 import data from "../Data.json";
 import { useNavigate } from "react-router-dom";
 import ProductIntro from "../components/Products/ProductIntro";
+import { formattedPrice } from "../common";
 
 const Home = () => {
   const dummySort = data.DUMMY_PRODUCTS.sort((a, b) => b.purchase - a.purchase);
@@ -24,7 +25,7 @@ const Home = () => {
     >
       <span>
         <h3>
-          {best.name} | {best.price}원
+          {best.name} | {formattedPrice(best.price)}
         </h3>
       </span>
       판매량:<span style={{ color: "brown" }}>{best.purchase}</span>

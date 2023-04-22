@@ -16,5 +16,6 @@
 }
 
 .inputBox {
-  size: auto;
+  size: 20px;
+  border-radius: 13px;
 }

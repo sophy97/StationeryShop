@@ -2,18 +2,18 @@
   "DUMMY_PRODUCTS": [
     {
       "id": 1,
-      "name": "젤리펜",
-      "description": "칼라풀한 색감이 매력적인 젤리펜입니다.",
-      "price": 1500,
+      "name": "젤리 형광펜 세트",
+      "description": "컬러풀한 색감이 매력적인 젤리펜입니다.",
+      "price": 3800,
       "purchase": 100,
       "img": "goods_1.jpg"
     },
     {
       "id": 2,
-      "name": "스마트폰 케이스",
-      "description": "다양한 색상과 디자인으로 구성된 스마트폰 케이스입니다.",
-      "price": 17000,
-      "purchase": 25,
+      "name": "라이언 노트",
+      "description": "베이직한 노트, 귀여운 라이언 표지의 줄노트입니다",
+      "price": 1000,
+      "purchase": 3230,
       "img": "goods_2.jpg"
     },
     {
@@ -26,18 +26,18 @@
     },
     {
       "id": 4,
-      "name": "연필세트",
-      "description": "유색, 검정색 연필이 함께 들어있는 세트입니다.",
-      "price": 5000,
-      "purchase": 35,
+      "name": "핑크다이어리",
+      "description": "여아들에게 인기있는 핑크 다이어리입니다.",
+      "price": 12800,
+      "purchase": 53,
       "img": "goods_4.jpg"
     },
     {
       "id": 5,
-      "name": "스텐실",
-      "description": "다양한 모양과 패턴의 스텐실로 구성된 세트입니다.",
+      "name": "스티커팩",
+      "description": "다양한 모양과 패턴의 스티커로 구성된 세트입니다.",
       "price": 2500,
-      "purchase": 20,
+      "purchase": 8800,
       "img": "goods_5.jpg"
     },
     {
@@ -46,7 +46,7 @@
       "description": "좋은 집중력과 작업 환경을 위한 데스크 패드입니다.",
       "price": 25000,
       "purchase": 15,
-      "img": "goods_6.jpg"
+      "img": "goods_10.jpg"
     },
     {
       "id": 7,
@@ -70,7 +70,7 @@
       "description": "실제 만년필과 유사한 내구성, 경제적인 제품입니다.",
       "price": 12000,
       "purchase": 220,
-      "img": "goods_5.jpg"
+      "img": "goods_12.jpg"
     },
     {
       "id": 10,
@@ -78,23 +78,23 @@
       "description": "실제 만년필과 유사한 내구성, 경제적인 제품입니다.",
       "price": 1500,
       "purchase": 2000,
-      "img": "goods_4.jpg"
+      "img": "goods_11.jpg"
     },
     {
       "id": 11,
       "name": "춘식이 문구세트",
-      "description": "귀요미♡춘식이 인기몰이에 힘입은 할인가!",
+      "description": "귀요미♡춘식이 인기몰이에 힘입은 특 할인가!",
       "price": 13000,
-      "purchase": 1280,
+      "purchase": 9280,
       "img": "goods_8.jpg"
     },
     {
       "id": 12,
       "name": "파란볼펜",
-      "description": "실용적이고 경제적인 제품입니다.",
+      "description": "실용적이고 경제적인 제품입니다, 파격할인",
       "price": 800,
       "purchase": 5500,
-      "img": "goods_5.jpg"
+      "img": "goods_9.jpg"
     }
   ]
 }

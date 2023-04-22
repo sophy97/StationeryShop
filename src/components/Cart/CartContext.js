@@ -11,7 +11,7 @@ const CartProvider = ({ children }) => {
     totalAmount: 0,
   });
 
-  // 장바구니에 추가. +같은 상품이면 amount만 증가
+  // 수량: 상세페이지 > 장바구니 추가. 같은 상품이면 amount만 증가
   const addItemToCart = (item) => {
     setCartItems((prevState) => {
       const existingCartItemIndex = prevState.items.findIndex(
@@ -31,21 +31,68 @@ const CartProvider = ({ children }) => {
         updatedItems = [...prevState.items, item];
       }
 
-      const updatedTotalAmount =
-        prevState.totalAmount + item.price * item.amount;
+      const updatedAmount = prevState.totalAmount + item.price * item.amount;
 
-      return { items: updatedItems, totalAmount: updatedTotalAmount };
+      return { items: updatedItems, totalAmount: updatedAmount };
     });
-    alert("장바구니에 상품이 추가되었습니다")
   };
 
-  const removeItemFromCart = (id) => {
+  // Cart컴포넌트에서, 수량 같은 상품일때 amount 1씩 수량 증가
+  const addItemInCart = (item) => {
     setCartItems((prevState) => {
-      const itemToRemove = prevState.items.find((item) => item.id === id);
-      const updatedItems = prevState.items.filter((item) => item.id !== id);
-      const updatedTotalAmount =
-        prevState.totalAmount - itemToRemove.price * itemToRemove.amount;
-      return { items: updatedItems, totalAmount: updatedTotalAmount };
+      const existingCartItemIndex = prevState.items.findIndex(
+        (cartItem) => cartItem.id === item.id
+      );
+
+      let updatedItems;
+      if (existingCartItemIndex !== -1) {
+        const existingCartItem = prevState.items[existingCartItemIndex];
+        const updatedCartItem = {
+          ...existingCartItem,
+          amount: existingCartItem.amount + 1,
+        };
+        updatedItems = [...prevState.items];
+        updatedItems[existingCartItemIndex] = updatedCartItem;
+        const updatedAmount = prevState.totalAmount + existingCartItem.price;
+        return { items: updatedItems, totalAmount: updatedAmount };
+      } else {
+        updatedItems = [...prevState.items, item];
+        const updatedAmount = prevState.totalAmount + item.price;
+        return { items: updatedItems, totalAmount: updatedAmount };
+      }
+    });
+  };
+
+  // Cart컴포넌트에서 수량 1씩 줄이기(가격주의), amount가 0이 되면 상품제거
+  const delItemFromCart = (item) => {
+    setCartItems((prevState) => {
+      const existingCartItemIndex = prevState.items.findIndex(
+        (cartItem) => cartItem.id === item.id
+      );
+
+      let updatedItems;
+      if (existingCartItemIndex !== -1) {
+        const existingCartItem = prevState.items[existingCartItemIndex];
+        let updatedCartItem;
+        if (existingCartItem.amount > 1) {
+          updatedCartItem = {
+            ...existingCartItem,
+            amount: existingCartItem.amount - 1,
+          };
+          updatedItems = [...prevState.items];
+          updatedItems[existingCartItemIndex] = updatedCartItem;
+        } else {
+          updatedItems = prevState.items.filter(
+            (cartItem) => cartItem.id !== item.id
+          );
+        }
+
+        const updatedAmount = prevState.totalAmount - item.price;
+
+        return { items: updatedItems, totalAmount: updatedAmount };
+      } else {
+        return prevState;
+      }
     });
   };
 
@@ -53,7 +100,8 @@ const CartProvider = ({ children }) => {
     items: cartItems.items,
     totalAmount: cartItems.totalAmount,
     addItem: addItemToCart,
-    removeItem: removeItemFromCart,
+    addCartCount: addItemInCart,
+    delCartCount: delItemFromCart,
   };
 
   return (

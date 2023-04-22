@@ -4,12 +4,29 @@
 .cart h1 {
   background-color: wheat;
   border-radius: 8px;
-  color:black;
+  color: black;
 }
+.user {
+  font-style: italic;
+  color: brown;
+}
+.btnWrapper button {
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 18px;
+  border: none;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #2d2c2c;
+  color: #fff;
+}
+
 .amount {
   font-size: 20px;
   color: brown;
 }
 .totalAmount {
-  font-size: large;
+  font-size: 1.5rem;
 }
