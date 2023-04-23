@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import classes from "./Navbar.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Modal from "./../UI/Modal";
-import Cart from './../Cart/Cart';
+import Cart from "./../Cart/Cart";
 
 const Navbar = () => {
+  const navigator = useNavigate();
   const [userName, setUserName] = useState(
     localStorage.getItem("user_name") || null
   );
@@ -20,7 +21,6 @@ const Navbar = () => {
   const modalOpenHandler = () => {
     setShowModal(true);
     document.body.style.overflow = "hidden";
-    console.log("cart 모달 오픈 누름");
   };
   const modalCloseHandler = () => {
     setShowModal(false);
@@ -36,9 +36,20 @@ const Navbar = () => {
       {userName ? (
         <div className={classes.logout}>
           <span>
-            {userName}님, <b onClick={modalOpenHandler}>🛒</b>
+            <b className={classes.mypage} onClick={modalOpenHandler}>
+              🛒
+            </b>
+            <span
+              className={classes.mypage}
+              onClick={() => {
+                navigator("/mypage");
+              }}
+            >
+              👤
+            </span>
           </span>
           <br />
+          {userName}님,
           <button onClick={localLogOut}>LogOut</button>
           {showModal && (
             <Modal modalCloseHandler={modalCloseHandler}>

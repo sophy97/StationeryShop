@@ -1,5 +1,5 @@
 /**Cart(모달)화면을 구성하는 컴포넌트 */
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "./CartContext";
 import classes from "./Cart.module.css";
 import { formattedPrice } from "../../common";
@@ -8,19 +8,14 @@ import { useNavigate } from "react-router-dom";
 const Cart = (props) => {
   const navigator = useNavigate();
 
-  // context에서 불러오기 (배열, 총가격, 수정관련, 삭제관련)
-  const { items, totalPrice, addItemInCart, delItemFromCart } =
+  // context에서 불러오기 (카트에 담긴 아이템들, 총가격, 카트에 담기, 삭제)
+  const { items, totalPrice, addItem, delItemFromCart } =
     useContext(CartContext);
 
-  // const setCartTotalPrice = () => {
-  //   setCartItems({ items: cartItems, totalPrice: totalPrice });
-  // };
   // localStorage에 저장된 user 있다면 이름 불러오기
   const userName = localStorage.getItem("user_name");
-  // localStorage에서 총 가격 가져오기
-  //const totalPriceRef = useRef(localStorage.getItem("cart_total_price") || 0);
-
-  let totalQuantity = 0; // 총 상품 개수를 누적시킬 변수
+  // 총 상품 개수를 누적시킬 변수
+  let totalQuantity = 0;
   // 각 상품의 수량 값 누적하기 : for of
   for (const item of items) {
     totalQuantity += item.amount;
@@ -28,7 +23,7 @@ const Cart = (props) => {
 
   // 장바구니 수정 삭제 -Context에 만들어둔 함수 사용한 핸들러
   const onAddItemHandler = (item) => {
-    addItemInCart(item);
+    addItem({ ...item, amount: 1 });
   };
   const onDelItemHandler = (item) => {
     delItemFromCart(item);
@@ -40,20 +35,8 @@ const Cart = (props) => {
     localStorage.setItem("cart_total_price", totalPrice);
     alert("주문서 작성이 완료되었습니다!");
     props.modalCloseHandler();
-    navigator("/");
+    navigator("/mypage");
   };
-
-  useEffect(() => {
-    // 마운트 시 로컬 스토리지에서 cartItems 가져오기 (새로고침을 위한 작업)
-    const cartItems = JSON.parse(localStorage.getItem("cart_items")) || [];
-    let totalPrice = localStorage.getItem("cart_total_price") || 0;
-    // cartItems를 context에 저장
-    cartItems.forEach((item) => {
-      addItemInCart(item);
-      totalPrice += item.price * item.amount;
-    });
-    // setCartTotalPrice(totalPrice);
-  }, []); // 의존성- 빈 배열: 컴포넌트가 처음 마운트될 때만 실행
 
   return (
     <>
@@ -72,8 +55,8 @@ const Cart = (props) => {
                 <span className={classes.amount}>{item.amount}</span>개
               </p>
               <div className={classes.btnWrapper}>
-                <button onClick={() => onAddItemHandler(item)}> + </button>
                 <button onClick={() => onDelItemHandler(item)}> - </button>
+                <button onClick={() => onAddItemHandler(item)}> + </button>
               </div>
               <h3>{formattedPrice(item.price * item.amount)}</h3>
               <br />

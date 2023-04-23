@@ -1,7 +1,17 @@
 .wrapper {
   text-align: center;
+  position: relative;
+  margin: 10px 15px;
 }
-
+.btn {
+  font-weight: bold;
+  padding: 3px;
+}
+.delBtn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
 .my_cart {
   border: 2px solid lightslategray;
   border-radius: 13px;
@@ -9,5 +19,5 @@
   padding: 10px;
 }
 .orderList_title {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }

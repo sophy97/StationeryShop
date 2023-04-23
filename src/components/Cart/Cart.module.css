@@ -11,13 +11,14 @@
   color: brown;
 }
 .btnWrapper button {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: bold;
-  border-radius: 18px;
+  border-radius: 12px;
   border: none;
   width: 30px;
   height: 30px;
   justify-content: center;
+  margin: 10px;
   cursor: pointer;
   background-color: #2d2c2c;
   color: #fff;
