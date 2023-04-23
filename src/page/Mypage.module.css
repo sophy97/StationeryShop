@@ -1,0 +1,13 @@
+.wrapper {
+  text-align: center;
+}
+
+.my_cart {
+  border: 2px solid lightslategray;
+  border-radius: 13px;
+  margin: 10px 30px;
+  padding: 10px;
+}
+.orderList_title {
+  margin-bottom: 10px;
+}

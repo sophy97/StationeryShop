@@ -5,6 +5,7 @@ import Home from "./page/Home";
 import Shop from "./page/Shop";
 import ShopDetail from "./page/ShopDetail";
 import LoginForm from "./components/Login/LoginForm";
+import Mypage from "./page/Mypage";
 import Error from "./page/Error";
 import Container from "./components/UI/Container";
 import Footer from "./components/Layout/Footer";
@@ -21,6 +22,7 @@ function App() {
             <Route path="/shop" element={<Shop />}></Route>
             <Route path="/shop/:id" element={<ShopDetail />} />
             <Route path="/login" element={<LoginForm />}></Route>
+            <Route path="/mypage" element={<Mypage />}></Route>
             <Route path="*" element={<Error />}></Route>
           </Routes>
         </Container>

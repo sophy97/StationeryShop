@@ -2,19 +2,30 @@
  *  각 상품을 카트에 담는 기능 추가 : 카트에 담기 위한 input modal
  */
 import React, { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import data from "../Data.json";
 import classes from "./ShopDetail.module.css";
 import { CartContext } from "../components/Cart/CartContext";
 import { formattedPrice } from "./../common";
 
 const ShopDetail = () => {
+  const navigator = useNavigate();
   const { id } = useParams();
   const selectedProduct =
     data.DUMMY_PRODUCTS.find((product) => product.id === parseInt(id)) || null;
   // localStorage에 저장된 user 있다면 이름 불러오기
   const userName = localStorage.getItem("user_name");
   const [cartInputOpen, setCartInputOpen] = useState(false);
+
+  const onaddCartHandler = () => {
+    if (userName) {
+      setCartInputOpen(true);
+    } else {
+      alert("로그인 후 상품을 추가해 주세요!");
+      navigator("/login");
+    }
+  };
+
   return (
     <div className={classes.wrapper}>
       test: {id} | {selectedProduct.img}
@@ -29,17 +40,10 @@ const ShopDetail = () => {
       </span>
       <br />
       <span>
-        <button
-          onClick={() => {
-            setCartInputOpen(true);
-          }}
-          className={classes.addCart}
-        >
+        <button onClick={onaddCartHandler} className={classes.addCart}>
           + 🛒
         </button>
-        {cartInputOpen && userName && (
-          <CartInput selectedProduct={selectedProduct} />
-        )}
+        {cartInputOpen && <CartInput selectedProduct={selectedProduct} />}
       </span>
     </div>
   );
@@ -74,7 +78,7 @@ const CartInput = (props) => {
         <br />
         상품명:{name}, 가격:{price.toLocaleString()} / 수량:{amount}개
       </p>
-      <button>상품 추가</button>
+      <button className={classes.toCart}>상품 추가</button>
     </form>
   );
 };

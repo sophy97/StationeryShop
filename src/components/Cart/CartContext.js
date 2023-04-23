@@ -1,4 +1,5 @@
-/**Cart에 담을 product에 접근하기 위한 State 전역 관리 */
+/**
+ * Cart에 담을 product에 접근하기 위한 State 전역 관리 */
 import { createContext, useState } from "react";
 
 // createContext 함수를 사용해 Context 객체 생성
@@ -6,12 +7,13 @@ const CartContext = createContext();
 
 // CartProvider 컴포넌트를 생성
 const CartProvider = ({ children }) => {
+  // 카트에 담긴 아이템 관리할 state, 초기값 설정
   const [cartItems, setCartItems] = useState({
     items: [],
-    totalAmount: 0,
+    totalPrice: 0,
   });
 
-  // 수량: 상세페이지 > 장바구니 추가. 같은 상품이면 amount만 증가
+  // 상세페이지 > 장바구니 추가. 같은 상품이면 amount만 증가
   const addItemToCart = (item) => {
     setCartItems((prevState) => {
       const existingCartItemIndex = prevState.items.findIndex(
@@ -30,10 +32,8 @@ const CartProvider = ({ children }) => {
       } else {
         updatedItems = [...prevState.items, item];
       }
-
-      const updatedAmount = prevState.totalAmount + item.price * item.amount;
-
-      return { items: updatedItems, totalAmount: updatedAmount };
+      const updatedPrice = prevState.totalPrice + item.price * item.amount;
+      return { items: updatedItems, totalPrice: updatedPrice };
     });
   };
 
@@ -43,8 +43,8 @@ const CartProvider = ({ children }) => {
       const existingCartItemIndex = prevState.items.findIndex(
         (cartItem) => cartItem.id === item.id
       );
-
       let updatedItems;
+      // 이미 카트에 담긴 상품일 경우 : 수량+1
       if (existingCartItemIndex !== -1) {
         const existingCartItem = prevState.items[existingCartItemIndex];
         const updatedCartItem = {
@@ -53,24 +53,25 @@ const CartProvider = ({ children }) => {
         };
         updatedItems = [...prevState.items];
         updatedItems[existingCartItemIndex] = updatedCartItem;
-        const updatedAmount = prevState.totalAmount + existingCartItem.price;
-        return { items: updatedItems, totalAmount: updatedAmount };
+        const updatedPrice = prevState.totalPrice + existingCartItem.price;
+        return { items: updatedItems, totalPrice: updatedPrice };
       } else {
+        // 카트에 없는 상품일 경우 : 새 요소 추가 & 가격도 업데이트
         updatedItems = [...prevState.items, item];
-        const updatedAmount = prevState.totalAmount + item.price;
-        return { items: updatedItems, totalAmount: updatedAmount };
+        const updatedPrice = prevState.totalPrice + item.price;
+        return { items: updatedItems, totalPrice: updatedPrice };
       }
     });
   };
 
-  // Cart컴포넌트에서 수량 1씩 줄이기(가격주의), amount가 0이 되면 상품제거
+  // Cart컴포넌트에서, 수량 같은 상품일때 amount 1씩 감소, 0이면 제거
   const delItemFromCart = (item) => {
     setCartItems((prevState) => {
       const existingCartItemIndex = prevState.items.findIndex(
         (cartItem) => cartItem.id === item.id
       );
-
       let updatedItems;
+      // 이미 카트에 담긴 상품일 경우 : 수량 -1
       if (existingCartItemIndex !== -1) {
         const existingCartItem = prevState.items[existingCartItemIndex];
         let updatedCartItem;
@@ -86,22 +87,22 @@ const CartProvider = ({ children }) => {
             (cartItem) => cartItem.id !== item.id
           );
         }
-
-        const updatedAmount = prevState.totalAmount - item.price;
-
-        return { items: updatedItems, totalAmount: updatedAmount };
+        const updatedPrice = prevState.totalPrice - item.price;
+        return { items: updatedItems, totalPrice: updatedPrice };
       } else {
+        // 담기지 않은 경우는 보이지 않음
         return prevState;
       }
     });
   };
 
+  // 다른 컴포넌트에서 넘겨받을 value설정
   const cartContextValue = {
     items: cartItems.items,
-    totalAmount: cartItems.totalAmount,
+    totalPrice: cartItems.totalPrice,
     addItem: addItemToCart,
-    addCartCount: addItemInCart,
-    delCartCount: delItemFromCart,
+    addItemInCart: addItemInCart,
+    delItemFromCart: delItemFromCart,
   };
 
   return (

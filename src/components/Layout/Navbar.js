@@ -20,6 +20,7 @@ const Navbar = () => {
   const modalOpenHandler = () => {
     setShowModal(true);
     document.body.style.overflow = "hidden";
+    console.log("cart 모달 오픈 누름");
   };
   const modalCloseHandler = () => {
     setShowModal(false);
@@ -41,7 +42,7 @@ const Navbar = () => {
           <button onClick={localLogOut}>LogOut</button>
           {showModal && (
             <Modal modalCloseHandler={modalCloseHandler}>
-              <Cart />
+              <Cart modalCloseHandler={modalCloseHandler} />
             </Modal>
           )}
         </div>

@@ -13,6 +13,7 @@
 
 .addCart {
   font-size: larger;
+  cursor: pointer;
 }
 
 .inputBox {
