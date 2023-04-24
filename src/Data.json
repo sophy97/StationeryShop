@@ -58,10 +58,10 @@
     },
     {
       "id": 8,
-      "name": "다이어리",
-      "description": "스테디 셀러, 인기 형식의 무지 다이어리입니다.",
+      "name": "마커펜 세트",
+      "description": "스테디 셀러, 다양하게 사용할 수 있는 마커펜 세트.",
       "price": 14500,
-      "purchase": 500,
+      "purchase": 530,
       "img": "goods_6.jpg"
     },
     {

@@ -28,7 +28,7 @@ const Home = () => {
           {best.name} | {formattedPrice(best.price)}
         </h3>
       </span>
-      판매량:<span style={{ color: "brown" }}>{best.purchase}</span>
+      구매:<span style={{ color: "brown" }}>{best.purchase}</span>
       <hr />
     </div>
   ));
@@ -36,7 +36,6 @@ const Home = () => {
   return (
     <>
       <ProductIntro />
-      <h1 className={classes.title}>BEST LIST</h1>
       <section className={classes.wrapper}>{bestList}</section>
     </>
   );

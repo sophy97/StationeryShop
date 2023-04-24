@@ -5,14 +5,14 @@
   margin: auto;
   margin-top: -5rem;
   position: relative;
-  background-color: #ecd6c7;
-  color: rgb(59, 21, 21);
+  background-color: #e2d1c8;
+  color: black;
   border-radius: 14px;
   padding: 2rem;
-  box-shadow: 0 1px 18px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 13px 10px rgba(91, 81, 53, 0.25);
 }
 
-.intro h2 {
+.intro h3 {
   font-size: 2rem;
-  margin-top: 0;
+  margin: 5px;
 }

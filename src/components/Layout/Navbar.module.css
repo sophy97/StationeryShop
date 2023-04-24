@@ -9,22 +9,38 @@
   text-decoration: none;
 }
 
-.mypage {
-  font-size: 30px;
-  background-color: antiquewhite;
-  padding: 2px 2px;
+.active {
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.myCart {
+  font-size: 35px;
+  color:black;
+  padding: 4px;
   margin: 2px;
   border-radius: 13px;
   cursor: pointer;
 }
+.myCart:hover {
+  color: #f0f0f0;
+}
 
 .logout button {
-  border-radius: 8px;
-  padding: 5px 8px;
-  margin-left: 10px;
-  margin-top: 10px;
+  margin: 3px;
+  text-align: center;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
 }
 
 .logout button:hover {
   cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.81);
+  color:whitesmoke;
 }

@@ -47,3 +47,9 @@
   background-color: #2d2c2c;
   color: #fff;
 }
+
+.delBtn {
+  position:absolute;
+  right: 0;
+
+}

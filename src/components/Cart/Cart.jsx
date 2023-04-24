@@ -44,6 +44,7 @@ const Cart = (props) => {
         <h1>
           <span className={classes.user}>{userName}</span>'s Cart
         </h1>
+
         <br />
         {items.map((item) => {
           const formatPrice = formattedPrice(item.price);
@@ -80,9 +81,11 @@ const Cart = (props) => {
           최종 가격 : {formattedPrice(totalPrice)}
         </span>
         {totalQuantity !== 0 && (
-          <button onClick={onOrderHandler} className={classes.orderBtn}>
-            주문하기
-          </button>
+          <>
+            <button onClick={onOrderHandler} className={classes.orderBtn}>
+              주문하기
+            </button>
+          </>
         )}
       </div>
     </>

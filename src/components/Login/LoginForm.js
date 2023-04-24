@@ -26,7 +26,6 @@ const LoginForm = () => {
 
   return (
     <div className={classes.login}>
-      <h2>Google Login</h2>
       <button className={classes.button} onClick={googleLogin}>
         <img className={classes.gooBtn} src={gooBtn}></img>
       </button>

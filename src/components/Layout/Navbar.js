@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import classes from "./Navbar.module.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Modal from "./../UI/Modal";
 import Cart from "./../Cart/Cart";
 
 const Navbar = () => {
-  const navigator = useNavigate();
   const [userName, setUserName] = useState(
     localStorage.getItem("user_name") || null
   );
@@ -29,24 +30,28 @@ const Navbar = () => {
 
   return (
     <div className={classes.link}>
-      <NavLink exact={String(true)} to="/">
+      <NavLink
+        to="/"
+        className={({ isActive }) => {
+          return isActive ? classes.active : null;
+        }}
+      >
         Home
       </NavLink>
-      <NavLink to="/shop">Shop</NavLink>
+      <NavLink
+        to="/shop"
+        className={({ isActive }) => {
+          return isActive ? classes.active : "";
+        }}
+      >
+        Shop
+      </NavLink>
       {userName ? (
         <div className={classes.logout}>
           <span>
-            <b className={classes.mypage} onClick={modalOpenHandler}>
-              🛒
+            <b className={classes.myCart} onClick={modalOpenHandler}>
+              <FontAwesomeIcon icon={faCartShopping} flip="horizontal" />
             </b>
-            <span
-              className={classes.mypage}
-              onClick={() => {
-                navigator("/mypage");
-              }}
-            >
-              👤
-            </span>
           </span>
           <br />
           {userName}님,
@@ -58,7 +63,14 @@ const Navbar = () => {
           )}
         </div>
       ) : (
-        <NavLink to="/login">Login</NavLink>
+        <NavLink
+          to="/login"
+          className={({ isActive }) => {
+            return isActive ? classes.active : null;
+          }}
+        >
+          Login
+        </NavLink>
       )}
     </div>
   );

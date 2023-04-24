@@ -1,5 +1,6 @@
 .wrapper {
   text-align: center;
+  margin-top: 10px;
 }
 .img_wrap {
   width: 200px;
@@ -11,12 +12,45 @@
   width: 100%;
 }
 
+.form_wrap {
+  margin: 10px;
+}
+
 .addCart {
-  font-size: larger;
+  font-size: 45px;
   cursor: pointer;
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.addCart:hover {
+  background-color: lightgray;
+}
+
+.toCart {
+  padding: 5px;
+  border: none;
+  border-radius: 10px;
+}
+.toCart:hover {
+  background-color: black;
+  color: white;
 }
 
 .inputBox {
   size: 20px;
-  border-radius: 13px;
+  border: none;
+  width: min-content;
+}
+
+.orderInfo {
+  padding: 3px;
+  margin-top: 20px;
+}
+
+.orderInfo span {
+  border-bottom: 2px solid lightgray;
 }

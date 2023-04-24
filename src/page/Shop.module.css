@@ -6,8 +6,7 @@
   cursor: pointer;
 }
 .sortBtn {
-  /* display: block; */
-  margin: 0 auto;
+  margin: 3px;
   text-align: center;
   background-color: #f0f0f0;
   border: none;
@@ -24,7 +23,7 @@
 }
 
 .searchBtn {
-  margin: 0 auto;
+  margin: 3px;
   text-align: center;
   background-color: #f0f0f0;
   border: none;
