@@ -34,7 +34,7 @@ const ShopDetail = () => {
   return (
     <div className={classes.wrapper}>
       <div className={classes.img_wrap}>
-        <img src={`/${selectedProduct.img}`}></img>
+        <img src={process.env.PUBLIC_URL + `/${selectedProduct.img}`}></img>
       </div>
       <h2>{selectedProduct.name}</h2>
       <span>{selectedProduct.description}</span>

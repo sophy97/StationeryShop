@@ -22,6 +22,7 @@ const LoginForm = () => {
     const result = await signInWithPopup(auth, provider);
     localStorage.setItem("user_name", result.user.displayName);
     window.location.reload();
+    navigate("/");
   };
 
   return (
