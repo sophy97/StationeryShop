@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   width: 100%;
-  background-color: #b0a19f;
+  background-color: #cccccc;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -15,6 +15,7 @@
 .logo {
   width: 180px;
   height: auto;
+  cursor: pointer;
 }
 
 .main-image {

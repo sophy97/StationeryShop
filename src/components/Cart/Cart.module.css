@@ -1,13 +1,21 @@
+@font-face {
+  font-family: "Humanbumsuk";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Humanbumsuk.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
 .cart {
   text-align: center;
 }
 .cart h1 {
-  background-color: wheat;
-  border-radius: 8px;
+  background-color: #E8E8E8;
+  border-radius: 10px;
   color: black;
+  margin-bottom: 20px;
 }
 .user {
-  font-style: italic;
+  font-family: "Humanbumsuk";
   color: brown;
 }
 .btnWrapper button {
@@ -33,14 +41,13 @@
   font-weight: bold;
 }
 
-.orderBtn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: block;
+.addBtn {
+  position: relative;
+  display: inline-block;
   text-align: center;
   font-size: 1.2rem;
-  padding: 8px;
+  padding: 5px;
+  margin: 7px;
   border-radius: 18px;
   border: none;
   cursor: pointer;
@@ -48,8 +55,17 @@
   color: #fff;
 }
 
-.delBtn {
-  position:absolute;
-  right: 0;
-
+.catBtn {
+  font-size: 20px;
+  cursor: pointer;
+}
+.catBtn:hover {
+  background-color: #2d2c2cbe;
+  color: aliceblue;
+  border-radius: 12px;
+  margin: 10px;
+  padding: 5px;
+}
+.catBtn:hover:after {
+  content: "😸";
 }

@@ -11,7 +11,7 @@ const ProductIntro = () => {
         <br />
         다양한 문구 용품을 경제적인 가격에 쇼핑하세요!
         <br />
-        ©️ Stationery Station
+        &copy; Stationery Station
       </section>
     </>
   );

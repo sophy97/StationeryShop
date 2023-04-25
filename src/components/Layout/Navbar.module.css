@@ -7,6 +7,7 @@
 .link a {
   text-align: center;
   text-decoration: none;
+  font-size: 20px;
 }
 
 .active {
@@ -16,18 +17,22 @@
 
 .myCart {
   font-size: 35px;
-  color:black;
+  color: black;
   padding: 4px;
   margin: 2px;
   border-radius: 13px;
   cursor: pointer;
 }
 .myCart:hover {
-  color: #f0f0f0;
+  color: #686262;
+}
+
+.logout b {
+  color: black;
 }
 
 .logout button {
-  margin: 3px;
+  margin: 5px;
   text-align: center;
   background-color: #f0f0f0;
   border: none;
@@ -42,5 +47,5 @@
 .logout button:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.81);
-  color:whitesmoke;
+  color: whitesmoke;
 }

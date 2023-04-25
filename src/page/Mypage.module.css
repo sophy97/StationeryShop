@@ -1,8 +1,26 @@
+@font-face {
+  font-family: "Humanbumsuk";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Humanbumsuk.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .wrapper {
   text-align: center;
   position: relative;
   margin: 10px 15px;
 }
+.header span {
+  font-family: "Humanbumsuk";
+}
+
+.orderList_title {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid lightgray;
+}
+
 .btn {
   margin: 3px;
   text-align: center;
@@ -21,6 +39,12 @@
   margin: 10px 30px;
   padding: 10px;
 }
-.orderList_title {
-  margin-bottom: 15px;
+
+.total_price {
+  border-top: 1.5px solid lightgray;
+  padding-top: 10px;
+}
+
+.total_price span {
+  color: brown;
 }

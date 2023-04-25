@@ -19,6 +19,28 @@ const CartProvider = ({ children }) => {
         };
   const [cartItems, setCartItems] = useState(initialState);
 
+  /**
+   * 관련 함수들 - 카트에 담기, 카트 모달 여닫기
+   */
+  const onAddItemHandler = (item) => {
+    addItemToCart({ ...item, amount: 1 });
+  };
+  const onDelItemHandler = (item) => {
+    delItemFromCart(item);
+  };
+
+  // Navbar 컴포넌트, 모달 여닫기 state, handler
+  const [showModal, setShowModal] = useState(false);
+  // 모달 관리 함수
+  const modalOpenHandler = () => {
+    setShowModal(true);
+    document.body.style.overflow = "hidden";
+  };
+  const modalCloseHandler = () => {
+    setShowModal(false);
+    document.body.style.overflow = "visible";
+  };
+
   // 제품상세페이지 => Cart 추가. 이미 담은 상품이면 amount만 증가
   const addItemToCart = (item) => {
     setCartItems((prevState) => {
@@ -113,9 +135,15 @@ const CartProvider = ({ children }) => {
   const cartContextValue = {
     items: cartItems.items,
     totalPrice: cartItems.totalPrice,
-    addItem: addItemToCart,
+    showModal: showModal,
+    addItemToCart: addItemToCart,
     addItemInCart: addItemInCart,
     delItemFromCart: delItemFromCart,
+    onAddItemHandler: onAddItemHandler,
+    onDelItemHandler: onDelItemHandler,
+    setShowModal: setShowModal,
+    modalOpenHandler: modalOpenHandler,
+    modalCloseHandler: modalCloseHandler,
   };
 
   return (

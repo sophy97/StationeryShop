@@ -8,6 +8,7 @@ const Mypage = () => {
   const navigator = useNavigate();
   const { items } = useContext(CartContext);
   const userName = localStorage.getItem("user_name");
+  const totalPrice = localStorage.getItem("cart_total_price");
 
   const onResetHandler = () => {
     localStorage.removeItem("cart_items");
@@ -19,19 +20,15 @@ const Mypage = () => {
 
   return (
     <div className={classes.wrapper}>
-      <h3>
+      <h3 className={classes.header}>
         <span style={{ color: "brown", fontSize: "30px" }}>{userName}</span> 님,
         주문이 완료되었습니다.
         <br />
         이용해 주셔서 감사합니다!
         <br />
-        <button onClick={onResetHandler} className={classes.btn}>
-          초기화
-        </button>
       </h3>
       <div className={classes.my_cart}>
         <h2 className={classes.orderList_title}>주문 내역</h2>
-
         <section className={classes.cart}>
           {items.map((item) => {
             const formatPrice = formattedPrice(item.price);
@@ -51,7 +48,11 @@ const Mypage = () => {
             );
           })}
         </section>
+        <h3 className={classes.total_price}>최종 결제금액 : <span>{formattedPrice(+totalPrice)}</span></h3>
       </div>
+      <button onClick={onResetHandler} className={classes.btn}>
+        초기화
+      </button>
     </div>
   );
 };

@@ -1,31 +1,28 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import classes from "./Navbar.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Modal from "./../UI/Modal";
 import Cart from "./../Cart/Cart";
+import { CartContext } from "../Cart/CartContext";
 
 const Navbar = () => {
+  const navigator = useNavigate();
   const [userName, setUserName] = useState(
     localStorage.getItem("user_name") || null
   );
-  const [showModal, setShowModal] = useState(false);
 
+  // CartContext.js에서 장바구니 모달 state, handler부르기
+  const cartCtx = useContext(CartContext);
+  const { showModal, modalOpenHandler, modalCloseHandler } = cartCtx;
   // 로그아웃 함수(localStorage에서 정보 삭제)
   const localLogOut = () => {
     alert("로그아웃 하시겠습니까?");
     localStorage.removeItem("user_name");
+    
+    navigator("/");
     window.location.reload();
-  };
-  // 모달 관리 함수
-  const modalOpenHandler = () => {
-    setShowModal(true);
-    document.body.style.overflow = "hidden";
-  };
-  const modalCloseHandler = () => {
-    setShowModal(false);
-    document.body.style.overflow = "visible";
   };
 
   return (
@@ -53,8 +50,7 @@ const Navbar = () => {
               <FontAwesomeIcon icon={faCartShopping} flip="horizontal" />
             </b>
           </span>
-          <br />
-          {userName}님,
+          <b style={{color:"brown"}}>{userName}</b>님
           <button onClick={localLogOut}>LogOut</button>
           {showModal && (
             <Modal modalCloseHandler={modalCloseHandler}>

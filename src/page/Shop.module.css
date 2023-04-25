@@ -22,19 +22,6 @@
   color: #f2f2f2;
 }
 
-.searchBtn {
-  margin: 3px;
-  text-align: center;
-  background-color: #f0f0f0;
-  border: none;
-  border-radius: 5px;
-  padding: 5px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  outline: none;
-}
-
 .search_bar {
   background-color: #f2f2f2;
   border-radius: 10px;
@@ -46,7 +33,6 @@
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   margin-bottom: 20px;
 }
-
 .search_input {
   border: none;
   flex-grow: 1;
