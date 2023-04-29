@@ -10,7 +10,7 @@
   max-width: 45rem;
   width: 100%;
   margin: auto;
-  margin-top: -6rem;
+  margin-top: -8rem;
   position: relative;
   background-color: rgba(32, 32, 32, 0.95);
   color: lightgray;
@@ -22,7 +22,11 @@
   font-size: 1.8rem;
   margin: 5px;
 }
+
 .intro span {
+  position: relative; /* span태그를 상대위치로 설정 */
+  display: inline-block; /* span태그를 인라인 블록으로 설정 */
+  margin-bottom: 30px;
   font-family: "Dovemayo_gothic";
   font-size: larger;
   font-weight: lighter;
@@ -30,14 +34,29 @@
   border-radius: 10px;
   color: black;
   padding: 3px;
-  box-sizing: border-box; /* padding 값을 박스의 내부크기로 설정 */
+  box-sizing: border-box;
+  transition: all 0.6s; /* 변경된 속성에 대해 0.6초간 트랜지션 적용 */
 }
-.intro span:hover {
-  background-color: black;
-  color: azure;
-  transition: background-color 0.6s ease;
+
+.intro span:before {
+  content: ""; /* 가상 요소로 생성된 콘텐츠가 없도록 설정 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.167); /* 투명도를 가진 검은색 배경 설정 */
   border-radius: 10px;
-  padding: 4px;
+  transition: all 0.6s;
+}
+
+.intro span:hover:before {
+  width: 100%; /* 마우스 오버 시 전체 길이로 설정 */
+}
+
+.intro span:hover {
+  background-color: rgb(28, 25, 25);
+  color: azure;
+  padding: 4.5px;
   cursor: pointer;
-  box-sizing: border-box; /* padding 값을 박스의 내부크기로 설정 */
 }

@@ -5,6 +5,7 @@ import data from "../Data.json";
 import { useNavigate } from "react-router-dom";
 import ProductIntro from "../components/Products/ProductIntro";
 import { formattedPrice } from "../common";
+import Intro from "./Intro";
 
 const Home = () => {
   const dummySort = data.DUMMY_PRODUCTS.sort((a, b) => b.purchase - a.purchase);

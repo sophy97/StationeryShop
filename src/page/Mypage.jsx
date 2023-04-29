@@ -15,7 +15,6 @@ const Mypage = () => {
     localStorage.removeItem("cart_total_price");
     alert("주문 내역이 삭제되었습니다.");
     navigator("/shop");
-    window.location.reload();
   };
 
   return (

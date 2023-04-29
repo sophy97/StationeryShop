@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "BookkMyungjo-Bd";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+.wrapper {
+  margin: 0;
+  padding: 0;
+}
+.video {
+  opacity: 0.7;
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: rgb(255, 239, 255);
+  font-size: 2.6rem;
+  text-shadow: 2px 2px 2px black;
+  
+}
+
+.overlay h1 {
+  font-family: "BookkMyungjo-Bd";
+}
+
+@media only screen and (max-width: 768px) {
+  .overlay h1 {
+    display: none;
+  }
+}

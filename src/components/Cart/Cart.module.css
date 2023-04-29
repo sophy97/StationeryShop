@@ -9,7 +9,7 @@
   text-align: center;
 }
 .cart h1 {
-  background-color: #E8E8E8;
+  background-color: #e8e8e8;
   border-radius: 10px;
   color: black;
   margin-bottom: 20px;
@@ -62,9 +62,9 @@
 .catBtn:hover {
   background-color: #2d2c2cbe;
   color: aliceblue;
-  border-radius: 12px;
-  margin: 10px;
+  border-radius: 20px;
   padding: 5px;
+  transition: all 0.5s ease;
 }
 .catBtn:hover:after {
   content: "😸";

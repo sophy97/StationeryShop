@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/StationeryShop/static/css/main.27240173.css",
-    "main.js": "/StationeryShop/static/js/main.87cbf4bd.js",
+    "main.css": "/StationeryShop/static/css/main.a746969a.css",
+    "main.js": "/StationeryShop/static/js/main.a9bb33bb.js",
     "static/media/table.jpg": "/StationeryShop/static/media/table.190145da6958f48dfe9f.jpg",
     "static/media/logo.png": "/StationeryShop/static/media/logo.c5a023fdc59233ac644d.png",
     "index.html": "/StationeryShop/index.html",
-    "main.27240173.css.map": "/StationeryShop/static/css/main.27240173.css.map",
-    "main.87cbf4bd.js.map": "/StationeryShop/static/js/main.87cbf4bd.js.map"
+    "main.a746969a.css.map": "/StationeryShop/static/css/main.a746969a.css.map",
+    "main.a9bb33bb.js.map": "/StationeryShop/static/js/main.a9bb33bb.js.map"
   },
   "entrypoints": [
-    "static/css/main.27240173.css",
-    "static/js/main.87cbf4bd.js"
+    "static/css/main.a746969a.css",
+    "static/js/main.a9bb33bb.js"
   ]
 }

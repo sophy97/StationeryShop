@@ -16,7 +16,6 @@ const ProductIntro = () => {
         >
           전체 상품 보기
         </span>
-        <hr />
         <br />
         다양한 문구 용품을 경제적인 가격에 쇼핑하세요!
         <br />

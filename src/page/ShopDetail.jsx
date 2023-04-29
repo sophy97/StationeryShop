@@ -37,7 +37,7 @@ const ShopDetail = () => {
         <img src={process.env.PUBLIC_URL + `/${selectedProduct.img}`}></img>
       </div>
       <h2>{selectedProduct.name}</h2>
-      <span>{selectedProduct.description}</span>
+      <span className={classes.description}>{selectedProduct.description}</span>
       <span>
         <p>가격: {formattedPrice(selectedProduct.price)}</p>
         <p>판매량: {selectedProduct.purchase}</p>

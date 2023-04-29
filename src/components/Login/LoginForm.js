@@ -21,8 +21,9 @@ const LoginForm = () => {
     // await을 만나면 그 아래 코드 순차실행(원래는 비동기:다른데서 처리 후 돌아옴)
     const result = await signInWithPopup(auth, provider);
     localStorage.setItem("user_name", result.user.displayName);
-    window.location.reload();
+    // 페이지 이동 후 새로고침하도록 순서 수정
     navigate("/");
+    window.location.reload();
   };
 
   return (

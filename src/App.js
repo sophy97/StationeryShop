@@ -6,15 +6,16 @@ import Shop from "./page/Shop";
 import ShopDetail from "./page/ShopDetail";
 import LoginForm from "./components/Login/LoginForm";
 import Mypage from "./page/Mypage";
-import Error from "./page/Error";
 import Container from "./components/UI/Container";
 import Footer from "./components/Layout/Footer";
 import { CartProvider } from "./components/Cart/CartContext";
+import Intro from "./page/Intro";
 
 function App() {
   return (
     <div>
       <CartProvider>
+        <Intro />
         <Header />
         <Container>
           <Routes>
@@ -23,7 +24,6 @@ function App() {
             <Route path="/shop/:id" element={<ShopDetail />} />
             <Route path="/login" element={<LoginForm />}></Route>
             <Route path="/mypage" element={<Mypage />}></Route>
-            <Route path="*" element={<Error />}></Route>
           </Routes>
         </Container>
         <Footer />

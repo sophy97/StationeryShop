@@ -1,13 +1,26 @@
-.link {
+.navbar {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  position: fixed;
+  padding: 0 50px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
   gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
 }
-.link a {
-  text-align: center;
-  text-decoration: none;
-  font-size: 22px;
+.logo {
+  width: 170px;
+  height: auto;
+  cursor: pointer;
+}
+
+.menu a {
+  margin-right: 30px;
 }
 
 .active {
@@ -15,6 +28,20 @@
   font-size: larger;
 }
 
+.toggle {
+  position: inherit;
+  cursor: pointer;
+}
+
+.logged_in .toggle,
+.logged_out .toggle {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999; /* 다른 요소보다 위로 올라오도록 z-index 속성 설정 */
+}
+
+/* Cart ~ */
 .myCart {
   font-size: 35px;
   color: black;
@@ -24,15 +51,16 @@
   cursor: pointer;
 }
 .myCart:hover {
-  color: #686262;
+  color: #575252;
 }
 
-.logout b {
+/* 로그인 상태 */
+.logged_in {
   color: black;
 }
 
-.logout button {
-  margin: 5px;
+.logged_in button {
+  margin: 10px 10px;
   text-align: center;
   background-color: #f0f0f0;
   border: none;
@@ -44,8 +72,8 @@
   outline: none;
 }
 
-.logout button:hover {
+.logged_in button:hover {
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.81);
+  background-color: rgba(0, 0, 0, 0.8);
   color: whitesmoke;
 }
