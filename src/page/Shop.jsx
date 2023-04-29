@@ -29,12 +29,16 @@ const filterProducts = (filterText, sortType) => {
 const Shop = () => {
   // 상품 검색 기능을 위한 state
   const [productList, setProductList] = useState(filterProducts("", "default"));
-  // 검색기능 onChange
+  // 검색기능 onChange & enterkey event
   const [filterText, setFilterText] = useState("");
 
-  const handleFilterTextChange = (event) => {
-    setFilterText(event.target.value);
-    setProductList(filterProducts(event.target.value, "default"));
+  const handleFilterTextChange = (e) => {
+    setFilterText(e.target.value);
+  };
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      setProductList(filterProducts(filterText, "default"));
+    }
   };
 
   // 필터1> 가격 낮은 상품부터 정렬할 버튼
@@ -55,6 +59,7 @@ const Shop = () => {
           placeholder="상품명 검색"
           value={filterText}
           onChange={handleFilterTextChange}
+          onKeyPress={handleKeyPress}
         />
       </div>
       <button className={classes.sortBtn} onClick={sortFilterHandler}>

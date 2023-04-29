@@ -26,7 +26,7 @@ const ShopDetail = () => {
       e.preventDefault();
       cartCtx.modalOpenHandler();
     } else {
-      alert("로그인 후 상품을 추가해 주세요!");
+      alert("로그인 후 상품을 추가해 주세요");
       navigator("/login");
     }
   };

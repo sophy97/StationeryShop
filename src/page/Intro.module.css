@@ -29,7 +29,7 @@
   font-family: "BookkMyungjo-Bd";
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 800px) {
   .overlay h1 {
     display: none;
   }

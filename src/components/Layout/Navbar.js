@@ -22,10 +22,13 @@ const Navbar = () => {
   const { showModal, modalOpenHandler, modalCloseHandler } = cartCtx;
   // 로그아웃 함수(localStorage에서 정보 삭제)
   const localLogOut = () => {
-    alert("로그아웃 하시겠습니까?");
-    localStorage.removeItem("user_name");
-    navigator("/");
-    window.location.reload();
+    if (window.confirm("로그아웃 하시겠습니까?")) {
+      localStorage.removeItem("user_name");
+      navigator("/");
+      window.location.reload();
+    } else {
+      navigator("/");
+    }
   };
 
   const toggleMenu = () => {
@@ -63,7 +66,7 @@ const Navbar = () => {
               <NavLink
                 to="/shop"
                 className={({ isActive }) => {
-                  return isActive ? classes.active : "";
+                  return isActive ? classes.active : null;
                 }}
               >
                 Shop
@@ -100,7 +103,7 @@ const Navbar = () => {
               <NavLink
                 to="/shop"
                 className={({ isActive }) => {
-                  return isActive ? classes.active : "";
+                  return isActive ? classes.active : null;
                 }}
               >
                 Shop

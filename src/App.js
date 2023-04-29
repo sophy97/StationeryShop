@@ -1,6 +1,7 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Layout/Header";
+import Intro from "./page/Intro";
 import Home from "./page/Home";
 import Shop from "./page/Shop";
 import ShopDetail from "./page/ShopDetail";
@@ -9,7 +10,6 @@ import Mypage from "./page/Mypage";
 import Container from "./components/UI/Container";
 import Footer from "./components/Layout/Footer";
 import { CartProvider } from "./components/Cart/CartContext";
-import Intro from "./page/Intro";
 
 function App() {
   return (
