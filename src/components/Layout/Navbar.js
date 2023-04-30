@@ -36,78 +36,70 @@ const Navbar = () => {
   };
 
   return (
-    <div className={classes.navbar}>
-      <img
-        className={classes.logo}
-        src={logoImg}
-        alt="main logo"
-        onClick={() => {
-          navigator("/");
-        }}
-      />
-      {userName ? (
-        // 로그인 상태의 navbar 구성
-        <div className={classes.logged_in}>
-          <b style={{ color: "brown" }}>{userName}</b>님,
-          <button onClick={localLogOut}>LogOut</button>
-          <span onClick={toggleMenu} className={classes.toggle}>
+    <div className={classes.container}>
+      <div className={classes.navbar}>
+        <img
+          className={classes.logo}
+          src={logoImg}
+          alt="main logo"
+          onClick={() => {
+            navigator("/");
+          }}
+        />
+        {!showMenu && (
+          <button onClick={toggleMenu} className={classes.toggle}>
             <FontAwesomeIcon icon={faBars} size="2xl" color="black" />
-          </span>
-          {showMenu && (
-            <div className={classes.menu}>
-              <NavLink
-                to="/"
-                className={({ isActive }) => {
-                  return isActive ? classes.active : null;
-                }}
-              >
-                Home
-              </NavLink>
-              <NavLink
-                to="/shop"
-                className={({ isActive }) => {
-                  return isActive ? classes.active : null;
-                }}
-              >
-                Shop
-              </NavLink>
+          </button>
+        )}
+      </div>
+      <div
+        className={`${classes.menu} ${!showMenu ? classes.menu_hidden : ""}`}
+      >
+        <button onClick={toggleMenu} className={classes.cancel_btn}>
+          x
+        </button>
+        <div className={classes.nav_container}>
+          {userName && (
+            <div className={classes.info_wrap}>
+              <p>{userName}님</p>
               <span>
                 <b className={classes.myCart} onClick={modalOpenHandler}>
                   <FontAwesomeIcon icon={faCartShopping} flip="horizontal" />
                 </b>
               </span>
+              {showModal && (
+                <Modal modalCloseHandler={modalCloseHandler}>
+                  <Cart modalCloseHandler={modalCloseHandler} />
+                </Modal>
+              )}
             </div>
           )}
-          {showModal && (
-            <Modal modalCloseHandler={modalCloseHandler}>
-              <Cart modalCloseHandler={modalCloseHandler} />
-            </Modal>
-          )}
-        </div>
-      ) : (
-        // 로그아웃 상태의 navbar 구성
-        <div className={classes.logged_out}>
-          <span onClick={toggleMenu} className={classes.toggle}>
-            <FontAwesomeIcon icon={faBars} size="2xl" color="black" />
-          </span>
-          {showMenu && (
-            <div className={classes.menu}>
-              <NavLink
-                to="/"
-                className={({ isActive }) => {
-                  return isActive ? classes.active : null;
-                }}
-              >
-                Home
-              </NavLink>
-              <NavLink
-                to="/shop"
-                className={({ isActive }) => {
-                  return isActive ? classes.active : null;
-                }}
-              >
-                Shop
-              </NavLink>
+          <div className={classes.nav_wrap}>
+            <NavLink
+              to="/"
+              className={({ isActive }) => {
+                return isActive ? classes.active : null;
+              }}
+            >
+              Home
+            </NavLink>
+          </div>
+          <div className={classes.nav_wrap}>
+            <NavLink
+              to="/shop"
+              className={({ isActive }) => {
+                return isActive ? classes.active : null;
+              }}
+            >
+              Shop
+            </NavLink>
+          </div>
+          <div className={classes.nav_wrap}>
+            {userName ? (
+              <button className={classes.logout_button} onClick={localLogOut}>
+                LogOut
+              </button>
+            ) : (
               <NavLink
                 to="/login"
                 className={({ isActive }) => {
@@ -116,12 +108,88 @@ const Navbar = () => {
               >
                 Login
               </NavLink>
-            </div>
-          )}
+            )}
+          </div>
         </div>
-      )}
+      </div>
     </div>
   );
 };
 
 export default Navbar;
+
+// {userName ? (
+//   // 로그인 상태의 navbar 구성
+//   <div className={classes.logged_in}>
+//     <b style={{ color: "brown" }}>{userName}</b>님,
+// <button onClick={localLogOut}>LogOut</button>
+//     <span onClick={toggleMenu} className={classes.toggle}>
+//       <FontAwesomeIcon icon={faBars} size="2xl" color="black" />
+//     </span>
+//     {showMenu && (
+//       <div className={classes.menu}>
+//         <NavLink
+//           to="/"
+//           className={({ isActive }) => {
+//             return isActive ? classes.active : null;
+//           }}
+//         >
+//           Home
+//         </NavLink>
+//         <NavLink
+//           to="/shop"
+//           className={({ isActive }) => {
+//             return isActive ? classes.active : null;
+//           }}
+//         >
+//           Shop
+//         </NavLink>
+//         <span>
+//           <b className={classes.myCart} onClick={modalOpenHandler}>
+//             <FontAwesomeIcon icon={faCartShopping} flip="horizontal" />
+//           </b>
+//         </span>
+//       </div>
+//     )}
+// {showModal && (
+//   <Modal modalCloseHandler={modalCloseHandler}>
+//     <Cart modalCloseHandler={modalCloseHandler} />
+//   </Modal>
+// )}
+//   </div>
+// ) : (
+//   // 로그아웃 상태의 navbar 구성
+//   <div className={classes.logged_out}>
+//     <button onClick={toggleMenu} className={classes.toggle}>
+//       <FontAwesomeIcon icon={faBars} size="2xl" color="black" />
+//     </button>
+//     {showMenu && (
+//       <div className={classes.menu}>
+//         <NavLink
+//           to="/"
+//           className={({ isActive }) => {
+//             return isActive ? classes.active : null;
+//           }}
+//         >
+//           Home
+//         </NavLink>
+//         <NavLink
+//           to="/shop"
+//           className={({ isActive }) => {
+//             return isActive ? classes.active : null;
+//           }}
+//         >
+//           Shop
+//         </NavLink>
+//         <NavLink
+//           to="/login"
+//           className={({ isActive }) => {
+//             return isActive ? classes.active : null;
+//           }}
+//         >
+//           Login
+//         </NavLink>
+//       </div>
+//     )}
+//   </div>
+// )}

@@ -13,10 +13,10 @@ import { CartProvider } from "./components/Cart/CartContext";
 
 function App() {
   return (
-    <div>
+    <>
       <CartProvider>
-        <Intro />
         <Header />
+        <Intro />
         <Container>
           <Routes>
             <Route path="/" element={<Home />}></Route>
@@ -28,7 +28,7 @@ function App() {
         </Container>
         <Footer />
       </CartProvider>
-    </div>
+    </>
   );
 }
 

@@ -15,13 +15,14 @@ const Mypage = () => {
     localStorage.removeItem("cart_total_price");
     alert("주문 내역이 삭제되었습니다.");
     navigator("/shop");
+    window.location.reload();
   };
 
   return (
     <div className={classes.wrapper}>
       <h3 className={classes.header}>
         <span style={{ color: "brown", fontSize: "30px" }}>{userName}</span> 님,
-        주문이 완료되었습니다.
+        주문 완료되었습니다.
         <br />
         이용해 주셔서 감사합니다!
         <br />
@@ -50,7 +51,7 @@ const Mypage = () => {
         <h3 className={classes.total_price}>최종 결제금액 : <span>{formattedPrice(+totalPrice)}</span></h3>
       </div>
       <button onClick={onResetHandler} className={classes.btn}>
-        초기화
+        내역 초기화
       </button>
     </div>
   );

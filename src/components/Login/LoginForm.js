@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../../firebase/firebaseAuth";
 import classes from "./Login.module.css";
@@ -7,12 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (localStorage.getItem("user_name")) {
-      navigate("/");
-    }
-  }, []);
+  const loginRef = useRef(null);
 
   // google auth function
   const googleLogin = async () => {
@@ -26,8 +21,19 @@ const LoginForm = () => {
     window.location.reload();
   };
 
+  useEffect(() => {
+    if (localStorage.getItem("user_name")) {
+      navigate("/");
+    }
+  }, []);
+
+  useEffect(() => {
+    const refTop = loginRef.current.offsetTop;
+    window.scrollTo({ top: refTop });
+  }, [loginRef]);
+
   return (
-    <div className={classes.login}>
+    <div className={classes.login} ref={loginRef}>
       <button className={classes.button} onClick={googleLogin}>
         <img className={classes.gooBtn} src={gooBtn}></img>
       </button>

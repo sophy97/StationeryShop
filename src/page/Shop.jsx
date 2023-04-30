@@ -1,5 +1,5 @@
 /** Shop page : 상품 목록을 카드형태 출력 & 상품명 검색 & 정렬기준 필터 */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import data from "../Data.json";
 import classes from "./Shop.module.css";
 import ProductItem from "../components/Products/Item/ProductItem";
@@ -31,7 +31,7 @@ const Shop = () => {
   const [productList, setProductList] = useState(filterProducts("", "default"));
   // 검색기능 onChange & enterkey event
   const [filterText, setFilterText] = useState("");
-
+  const shopRef = useRef(null);
   const handleFilterTextChange = (e) => {
     setFilterText(e.target.value);
   };
@@ -49,9 +49,13 @@ const Shop = () => {
   const sortFilterHandler2 = () => {
     setProductList(filterProducts(filterText, "purchase"));
   };
-
+  // Shop이 렌더되면 shopRef의 위치로 이동
+  useEffect(() => {
+    const refTop = shopRef.current.offsetTop;
+    window.scrollTo({ top: refTop });
+  }, [shopRef]);
   return (
-    <>
+    <div className={classes.shop_cotainer} ref={shopRef}>
       <div className={classes.search_bar}>
         <input
           className={classes.search_input}
@@ -69,7 +73,7 @@ const Shop = () => {
         판매량순
       </button>
       <ul className={classes.products}>{productList}</ul>
-    </>
+    </div>
   );
 };
 
