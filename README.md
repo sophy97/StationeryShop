@@ -15,17 +15,26 @@
 #### React-Router / Firebase / localStorage
 
 - **라이브러리 사용 최소화**, 직접 기능을 구현하며 **리액트 hooks** 복습
+- 페이지 간 이동을 라우팅 처리하여 SPA로 구성. 필요한 부분만 업데이트
 - localStorage에 카트와 사용자 정보 저장 ⇒ **새로고침 후**에도 기록 유지
-- 피드백을 받아 계속해서 수정 및 보완 중입니다!
+- 피드백을 받아 계속해서 수정 및 보완 중입니다! 
 
-### 😶 Preview
+<br />
 
-![홈 화면](./assets/01_Home.jpg)
+## 😶 Preview 😶 
+### Home
+![홈 화면](https://raw.githubusercontent.com/sophy97/StationeryShop/master/src/assets/01_Home.jpg)
+- 홈 화면의 첫 부분입니다.
+### Shop
+<img src="https://raw.githubusercontent.com/sophy97/StationeryShop/master/src/assets/02_Shop.jpg" width="500" /><img src="https://raw.githubusercontent.com/sophy97/StationeryShop/master/src/assets/03_Shop.jpg" width="500" />
+- 상품 상세페이지를 카드 형태로 구현, 누르면 각 제품의 상세 페이지로 이동합니다.
+- 카드는 미디어 쿼리를 통해 4개, 3개, 2개로 화면 사이즈에 맞게 반응합니다.
+- filter(), sort() 메서드를 통해 가격순, 인기순 필터 구현 / includes()로 상품 제목 검색 구현
 
-![상품 페이지 화면](./assets/02_Shop.jpg)
-![상품페이지 검색 화면](./assets/03_Shop.jpg)
+### Login / Cart
+<img src="https://raw.githubusercontent.com/sophy97/StationeryShop/master/src/assets/04_login.jpg" width="500" /><img src="https://raw.githubusercontent.com/sophy97/StationeryShop/master/src/assets/05_cart.jpg" width="500" />
+- 로그인 후 navbar의 변화 / cart에 상품 담고 수량 조절, 총 가격 계산 (ContextAPI)로 관련 state 전역 관리
+- 장바구니 모달에서 '주문하기'를 통해 로컬스토리지에 카트 정보가 저장됩니다. 
+![장바구니 기록 삭제와 로컬스토리지 확인](https://raw.githubusercontent.com/sophy97/StationeryShop/master/src/assets/06_local.jpg)
+- 마이페이지로 이동하여 주문 내역을 불러오고, 로컬스토리지의 기록을 삭제할 수 있도록 만들었습니다. 
 
-![로그인한 모습](./assets/04_login.jpg)
-
-![장바구니에 상품 담은 모습](./assets/05_cart.jpg)
-![장바구니 기록 삭제와 로컬스토리지 확인](./assets/06_local.jpg)
