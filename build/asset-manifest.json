@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/StationeryShop/static/css/main.4497b40f.css",
-    "main.js": "/StationeryShop/static/js/main.150dde50.js",
+    "main.css": "/StationeryShop/static/css/main.94813cee.css",
+    "main.js": "/StationeryShop/static/js/main.9686cc76.js",
     "static/media/logo.png": "/StationeryShop/static/media/logo.c5a023fdc59233ac644d.png",
     "index.html": "/StationeryShop/index.html",
-    "main.4497b40f.css.map": "/StationeryShop/static/css/main.4497b40f.css.map",
-    "main.150dde50.js.map": "/StationeryShop/static/js/main.150dde50.js.map"
+    "main.94813cee.css.map": "/StationeryShop/static/css/main.94813cee.css.map",
+    "main.9686cc76.js.map": "/StationeryShop/static/js/main.9686cc76.js.map"
   },
   "entrypoints": [
-    "static/css/main.4497b40f.css",
-    "static/js/main.150dde50.js"
+    "static/css/main.94813cee.css",
+    "static/js/main.9686cc76.js"
   ]
 }
